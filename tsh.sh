@@ -76,6 +76,7 @@ function bkup_fld {
         git commit -m "${fmsize}bytes"
     done
     git add -A
+    git commit -m "reflect changes in other directories"
     git push bksf master
         # if [ $? -eq 0 ];then rm -f "$des_folder"/"$f";fi
 }
