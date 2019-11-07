@@ -72,21 +72,13 @@ function bkup_fld {
     declare -A FSIZE
     for f in $(ls $des_folder);do
         fmsize=$(echo $(du -h "$des_folder"/"$f") | awk '{print $1}')
-        # FSIZE+=(["$f"]=$fmsize)
         git add "$des_folder"/"$f"
         git commit -m "${fmsize}bytes"
-        git push bksf master
-        # if [ $? -eq 0 ];then rm -f "$des_folder"/"$f";fi
     done
+    git add -A
+    git push bksf master
+        # if [ $? -eq 0 ];then rm -f "$des_folder"/"$f";fi
 }
 
 bkup_fld /g/cs/batpush /g/cs/backup2git/batpush
-
-# declare -A md
-# md+=([k1]=11)
-# md+=([k4]=309)
-# echo "${!md[@]}"
-# echo ${md[*]}
-
-
 
