@@ -57,13 +57,10 @@ function bkup_fld {
         ## file size in bytes
         fbsize=$(stat -c %s "$des_folder"/"$newf")
         ## file size in Mbytes
-        fmsize=$(awk -v a=$fbsize 'BEGIN{printf "%.2f", a/1024/1024}')
-        # define an associated array to store file size
-        declare -A FSIZE
-        FSIZE+=(["$newf"]=$fmsize)
-        if [ "$fbsize" -gt 1000000 ];then
+        # fmsize=$(awk -v a=$fbsize 'BEGIN{printf "%.2f", a/1024/1024}')
+        
+        if [ "$fbsize" -gt 1048576 ];then
             cmprf "$des_folder"/"$newf"
-            
             # delete a successfully compressed file
             if [ -f "$des_folder"/"$newf".xz ];then
                 COUNT_CMPR=$[ $COUNT_CMPR+1 ]
@@ -72,11 +69,14 @@ function bkup_fld {
         fi
     done
     echo $COUNT_LNK links made and $COUNT_CMPR files compressed successfully.
+    declare -A FSIZE
     for f in $(ls $des_folder);do
+        fmsize=$(echo $(du -h "$des_folder"/"$f") | awk '{print $1}')
+        # FSIZE+=(["$f"]=$fmsize)
         git add "$des_folder"/"$f"
-        git commit -m "${FSIZE[$f]}"
+        git commit -m "${fmsize}bytes"
         git push bksf master
-        if [ $? -eq 0 ];then rm -f "$des_folder"/"$f";fi
+        # if [ $? -eq 0 ];then rm -f "$des_folder"/"$f";fi
     done
 }
 
