@@ -1,0 +1,30 @@
+.gitignore
+  ctime: 1572221022:359696300
+  mtime: 1573139822:967067600
+  dev: 0	ino: 0
+  uid: 0	gid: 0
+  size: 1334	flags: 0
+Advanced Data Structures [Peter Brass].pdf
+  ctime: 1573171868:921938000
+  mtime: 1564882157:867371400
+  dev: 0	ino: 0
+  uid: 0	gid: 0
+  size: 1721775	flags: 0
+"G/\347\273\217\345\205\270\347\256\227\346\263\225\345\244\247\345\205\250.pdf"
+  ctime: 1573171868:916937700
+  mtime: 1512708097:846104100
+  dev: 0	ino: 0
+  uid: 0	gid: 0
+  size: 1151217	flags: 0
+LICENSE
+  ctime: 1572221022:383199300
+  mtime: 1572221022:383199300
+  dev: 0	ino: 0
+  uid: 0	gid: 0
+  size: 35823	flags: 0
+repovol
+  ctime: 1573139312:599259100
+  mtime: 1573141740:570072200
+  dev: 0	ino: 0
+  uid: 0	gid: 0
+  size: 5	flags: 0
